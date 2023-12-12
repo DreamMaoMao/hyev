@@ -1,5 +1,11 @@
 # hyev
-hyprland event trigger, used for triggering custom scripts
+hyprland event trigger, used for triggering custom scripts with a animation sounds example
+
+
+
+https://github.com/DreamMaoMao/hyev/assets/30348075/f84ae9a1-7378-44ec-be10-5cbb6556d438
+
+
 
 # install
 ```
@@ -8,7 +14,14 @@ cd hyev
 bash install.sh
 ```
 
-# config example(animation sounds)
+# animation sounds example(animation sounds)
+## copy sound file
+```
+cd hyev
+cp ./sound -r /home/wrq/.config/hypr/
+```
+
+## edit hyprland.conf
 ```
 plugin = /usr/lib/libhyev.so
 
