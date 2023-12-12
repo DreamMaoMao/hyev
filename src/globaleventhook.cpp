@@ -29,6 +29,8 @@ void closeWindowHook(void* self, SCallbackInfo &info, std::any data) {
 //         return;
 //     if (pWindow->m_bIsX11 && (pWindow->m_bX11DoesntWantBorders || pWindow->m_iX11Type == 2))
 //         return; // not a toplevel
+//     if (pWindow == g_pCompositor->m_pLastWindow)
+//         return;
 //     hyev_log(LOG,"activeWindowHook trigger command:{}",g_focus_window);
 //     shell_execr(g_focus_window);
 // }
