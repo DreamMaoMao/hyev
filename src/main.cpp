@@ -13,7 +13,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 	CONF("open_window", str, "echo hycov > /dev/null");
 	CONF("close_window", str, "echo hycov > /dev/null");
 	CONF("change_workspace", str, "echo hycov > /dev/null");
-	CONF("focus_window", str, "echo hycov > /dev/null");
+	// CONF("focus_window", str, "echo hycov > /dev/null");
 	CONF("fullscreen_on", str, "echo hycov > /dev/null");
 	CONF("fullscreen_off", str, "echo hycov > /dev/null");
 #undef CONF
@@ -31,8 +31,8 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 	    &HyprlandAPI::getConfigValue(PHANDLE, "plugin:hyev:fullscreen_on")->strValue;
 	static const auto* pFullscreen_off_config =
 	    &HyprlandAPI::getConfigValue(PHANDLE, "plugin:hyev:fullscreen_off")->strValue;
-	static const auto* pFocus_window_config =
-	    &HyprlandAPI::getConfigValue(PHANDLE, "plugin:hyev:focus_window")->strValue;
+	// static const auto* pFocus_window_config =
+	//     &HyprlandAPI::getConfigValue(PHANDLE, "plugin:hyev:focus_window")->strValue;
 
 
 	g_open_window = *pOpen_window_config;
@@ -40,7 +40,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 	g_change_workspace = *pChange_workspace_config;
 	g_fullscreen_on = *pFullscreen_on_config;
 	g_fullscreen_off = *pFullscreen_off_config;
-	g_focus_window = *pFocus_window_config;
+	// g_focus_window = *pFocus_window_config;
 
 
 	registerGlobalEventHook();

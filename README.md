@@ -32,7 +32,6 @@ plugin {
         change_workspace = play -v 0.3 /home/wrq/.config/hypr/sound/change_workspace.wav 
         fullscreen_on = play -v 0.4 /home/wrq/.config/hypr/sound/fullscreen.wav 
         fullscreen_off = play -v 0.4 /home/wrq/.config/hypr/sound/tile.wav 
-        focus_window = ""
     }
 }
 ```
