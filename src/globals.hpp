@@ -7,6 +7,7 @@
 #define private public
 #include <hyprland/src/Compositor.hpp>
 #include <hyprland/src/plugins/PluginAPI.hpp>
+#include <hyprland/src/managers/KeybindManager.hpp>
 #undef private
 
 #include <boost/algorithm/string.hpp>

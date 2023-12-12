@@ -2,59 +2,8 @@
 #include "globaleventhook.hpp"
 #include <hyprland/src/SharedDefs.hpp>
 
-
-uint64_t shell_execr(std::string args) {
-    hyev_log(LOG, "Executing {}", args);
-
-    int socket[2];
-    if (pipe(socket) != 0) {
-        Debug::log(LOG, "Unable to create pipe for fork");
-    }
-
-    pid_t child, grandchild;
-    child = fork();
-    if (child < 0) {
-        close(socket[0]);
-        close(socket[1]);
-        Debug::log(LOG, "Fail to create the first fork");
-        return 0;
-    }
-    if (child == 0) {
-        // run in child
-
-        sigset_t set;
-        sigemptyset(&set);
-        sigprocmask(SIG_SETMASK, &set, NULL);
-
-        grandchild = fork();
-        if (grandchild == 0) {
-            // run in grandchild
-            close(socket[0]);
-            close(socket[1]);
-            execl("/bin/sh", "/bin/sh", "-c", args.c_str(), nullptr);
-            // exit grandchild
-            _exit(0);
-        }
-        close(socket[0]);
-        write(socket[1], &grandchild, sizeof(grandchild));
-        close(socket[1]);
-        // exit child
-        _exit(0);
-    }
-    // run in parent
-    close(socket[1]);
-    read(socket[0], &grandchild, sizeof(grandchild));
-    close(socket[0]);
-    // clear child and leave child to init
-    waitpid(child, NULL, 0);
-    if (child < 0) {
-        Debug::log(LOG, "Fail to create the second fork");
-        return 0;
-    }
-
-    hyev_log(LOG, "Process Created with pid {}", grandchild);
-
-    return grandchild;
+void shell_execr(std::string args) {
+    g_pKeybindManager->spawn(args);
 }
 
 
