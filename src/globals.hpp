@@ -5,6 +5,8 @@
 #include <hyprland/src/plugins/PluginAPI.hpp>
 
 inline HANDLE PHANDLE = nullptr;
+inline std::string g_default_layout_name;
+
 inline std::string g_open_window;
 inline std::string g_close_window;
 inline std::string g_change_workspace;

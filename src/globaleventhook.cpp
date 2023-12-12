@@ -1,6 +1,8 @@
 
 #include <hyprland/src/Compositor.hpp>
 #include <hyprland/src/plugins/PluginAPI.hpp>
+#include <boost/algorithm/string.hpp>
+
 #include "globals.hpp"
 
 uint64_t shell_execr(std::string args) {
@@ -60,27 +62,27 @@ uint64_t shell_execr(std::string args) {
 
 void openWindowHook(void* self, SCallbackInfo &info, std::any data) {
     auto* const pWindow = std::any_cast<CWindow*>(data);
-    hyev_log(LOG,"openWindowHook trigger command:{}",g_open_window);
     if (pWindow->m_bIsX11 && (pWindow->m_bX11DoesntWantBorders || pWindow->m_iX11Type == 2))
-        return; // not a x11 toplevel
+        return; // not a toplevel
+    hyev_log(LOG,"openWindowHook trigger command:{}",g_open_window);
     shell_execr(g_open_window);
 }
 
 void closeWindowHook(void* self, SCallbackInfo &info, std::any data) {
     auto* const pWindow = std::any_cast<CWindow*>(data);
-    hyev_log(LOG,"closeWindowHook trigger command:{}",g_close_window);
     if (pWindow->m_bIsX11 && (pWindow->m_bX11DoesntWantBorders || pWindow->m_iX11Type == 2))
-        return; // not a x11 toplevel
+        return; // not a toplevel
+    hyev_log(LOG,"closeWindowHook trigger command:{}",g_close_window);
     shell_execr(g_close_window);
 }
 
 void activeWindowHook(void* self, SCallbackInfo &info, std::any data) {
     auto* const pWindow = std::any_cast<CWindow*>(data);
-    hyev_log(LOG,"activeWindowHook trigger command:{}",g_focus_window);
     if(!pWindow)
         return;
     if (pWindow->m_bIsX11 && (pWindow->m_bX11DoesntWantBorders || pWindow->m_iX11Type == 2))
-        return; // not a x11 toplevel
+        return; // not a toplevel
+    hyev_log(LOG,"activeWindowHook trigger command:{}",g_focus_window);
     shell_execr(g_focus_window);
 }
 
@@ -100,8 +102,10 @@ void fullscreenHook(void* self, SCallbackInfo &info, std::any data) {
 
 
 void changeWorkspaceHook(void* self, SCallbackInfo &info, std::any data) {
-    auto curren_layout = g_pLayoutManager->getCurrentLayout();
-    
+    auto curren_layout_name = g_pLayoutManager->getCurrentLayout()->getLayoutName();
+    if(!boost::iequals(curren_layout_name,g_default_layout_name)) {
+        return;
+    }
     hyev_log(LOG,"changeWorkspaceHook trigger command:{}",g_change_workspace);
     shell_execr(g_change_workspace);
 }

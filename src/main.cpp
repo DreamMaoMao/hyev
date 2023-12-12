@@ -24,6 +24,9 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 	CONF("fullscreen_off", str, "echo hycov > /dev/null");
 #undef CONF
 
+	std::string *configLayoutName = &HyprlandAPI::getConfigValue(PHANDLE, "general:layout")->strValue;
+	g_default_layout_name = *configLayoutName;
+
 	static const auto* pOpen_window_config =
 	    &HyprlandAPI::getConfigValue(PHANDLE, "plugin:hyev:open_window")->strValue;
 	static const auto* pClose_window_config =
@@ -44,6 +47,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 	g_fullscreen_on = *pFullscreen_on_config;
 	g_fullscreen_off = *pFullscreen_off_config;
 	g_focus_window = *pFocus_window_config;
+
 
 	registerGlobalEventHook();
 	registerDispatchers();
