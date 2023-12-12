@@ -1,6 +1,5 @@
 # hyev
-hyprland event trigger, used for triggering custom scripts with a animation sounds example
-
+a hyprland plugin for Animation sound
 
 
 https://github.com/DreamMaoMao/hyev/assets/30348075/f84ae9a1-7378-44ec-be10-5cbb6556d438
