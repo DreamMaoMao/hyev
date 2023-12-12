@@ -1,8 +1,16 @@
 #pragma once
 
 #include "log.hpp"
+#include <hyprland/src/includes.hpp>
+#include <any>
 
+#define private public
+#include <hyprland/src/Compositor.hpp>
 #include <hyprland/src/plugins/PluginAPI.hpp>
+#undef private
+
+#include <boost/algorithm/string.hpp>
+
 
 inline HANDLE PHANDLE = nullptr;
 inline std::string g_default_layout_name;

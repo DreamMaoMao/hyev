@@ -1,4 +1,4 @@
 #pragma once
-#include <hyprland/src/SharedDefs.hpp>
+#include "globals.hpp"
 
 void registerGlobalEventHook();

@@ -1,9 +1,7 @@
 
-#include <hyprland/src/Compositor.hpp>
-#include <hyprland/src/plugins/PluginAPI.hpp>
-#include <boost/algorithm/string.hpp>
+#include "globaleventhook.hpp"
+#include <hyprland/src/SharedDefs.hpp>
 
-#include "globals.hpp"
 
 uint64_t shell_execr(std::string args) {
     hyev_log(LOG, "Executing {}", args);
