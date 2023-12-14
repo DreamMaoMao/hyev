@@ -13,6 +13,12 @@ cd hyev
 bash install.sh
 ```
 
+# depend
+```
+sudo pacman -S sox
+
+```
+
 # animation sounds example(animation sounds)
 ## copy sound file
 ```
