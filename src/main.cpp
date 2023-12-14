@@ -46,7 +46,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 	registerGlobalEventHook();
 	registerDispatchers();
 	
-	return {"hyev", "hyprland grocery Store", "DreamMaoMao", "0.1"};
+	return {"hyev", "hyprland event trigger", "DreamMaoMao", "0.1"};
 }
 
 APICALL EXPORT void PLUGIN_EXIT() {}
