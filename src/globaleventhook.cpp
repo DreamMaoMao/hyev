@@ -11,16 +11,16 @@ void openWindowHook(void* self, SCallbackInfo &info, std::any data) {
     auto* const pWindow = std::any_cast<CWindow*>(data);
     if (pWindow->m_bIsX11 && (pWindow->m_bX11DoesntWantBorders || pWindow->m_iX11Type == 2))
         return; // not a toplevel
-    hyev_log(LOG,"openWindowHook trigger command:{}",g_open_window);
-    shell_execr(g_open_window);
+    hyev_log(LOG,"openWindowHook trigger command:{}",g_hyev_open_window);
+    shell_execr(g_hyev_open_window);
 }
 
 void closeWindowHook(void* self, SCallbackInfo &info, std::any data) {
     auto* const pWindow = std::any_cast<CWindow*>(data);
     if (pWindow->m_bIsX11 && (pWindow->m_bX11DoesntWantBorders || pWindow->m_iX11Type == 2))
         return; // not a toplevel
-    hyev_log(LOG,"closeWindowHook trigger command:{}",g_close_window);
-    shell_execr(g_close_window);
+    hyev_log(LOG,"closeWindowHook trigger command:{}",g_hyev_close_window);
+    shell_execr(g_hyev_close_window);
 }
 
 // void activeWindowHook(void* self, SCallbackInfo &info, std::any data) {
@@ -29,10 +29,10 @@ void closeWindowHook(void* self, SCallbackInfo &info, std::any data) {
 //         return;
 //     if (pWindow->m_bIsX11 && (pWindow->m_bX11DoesntWantBorders || pWindow->m_iX11Type == 2))
 //         return; // not a toplevel
-//     if (pWindow == g_pCompositor->m_pLastWindow)
+//     if (pWindow == g_hyev_pCompositor->m_pLastWindow)
 //         return;
-//     hyev_log(LOG,"activeWindowHook trigger command:{}",g_focus_window);
-//     shell_execr(g_focus_window);
+//     hyev_log(LOG,"activeWindowHook trigger command:{}",g_hyev_focus_window);
+//     shell_execr(g_hyev_focus_window);
 // }
 
 void fullscreenHook(void* self, SCallbackInfo &info, std::any data) {
@@ -41,22 +41,22 @@ void fullscreenHook(void* self, SCallbackInfo &info, std::any data) {
         return;
     }
     if(pWindow->m_bIsFullscreen) {
-        hyev_log(LOG,"fullscreenHook trigger command:{}",g_fullscreen_off);
-        shell_execr(g_fullscreen_off);
+        hyev_log(LOG,"fullscreenHook trigger command:{}",g_hyev_fullscreen_off);
+        shell_execr(g_hyev_fullscreen_off);
     } else {
-        hyev_log(LOG,"fullscreenHook trigger command:{}",g_fullscreen_on);
-        shell_execr(g_fullscreen_on);        
+        hyev_log(LOG,"fullscreenHook trigger command:{}",g_hyev_fullscreen_on);
+        shell_execr(g_hyev_fullscreen_on);        
     }
 }
 
 
 void changeWorkspaceHook(void* self, SCallbackInfo &info, std::any data) {
     auto curren_layout_name = g_pLayoutManager->getCurrentLayout()->getLayoutName();
-    if(!boost::iequals(curren_layout_name,g_default_layout_name)) {
+    if(!boost::iequals(curren_layout_name,g_hyev_default_layout_name)) {
         return;
     }
-    hyev_log(LOG,"changeWorkspaceHook trigger command:{}",g_change_workspace);
-    shell_execr(g_change_workspace);
+    hyev_log(LOG,"changeWorkspaceHook trigger command:{}",g_hyev_change_workspace);
+    shell_execr(g_hyev_change_workspace);
 }
 
 

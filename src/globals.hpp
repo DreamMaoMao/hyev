@@ -14,14 +14,14 @@
 
 
 inline HANDLE PHANDLE = nullptr;
-inline std::string g_default_layout_name;
+inline std::string g_hyev_default_layout_name;
 
-inline std::string g_open_window;
-inline std::string g_close_window;
-inline std::string g_change_workspace;
-// inline std::string g_focus_window;
-inline std::string g_fullscreen_on;
-inline std::string g_fullscreen_off;
+inline std::string g_hyev_open_window;
+inline std::string g_hyev_close_window;
+inline std::string g_hyev_change_workspace;
+// inline std::string g_hyev_focus_window;
+inline std::string g_hyev_fullscreen_on;
+inline std::string g_hyev_fullscreen_off;
 
 
 inline void errorNotif()

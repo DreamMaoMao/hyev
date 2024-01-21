@@ -19,7 +19,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 #undef CONF
 
 	std::string *configLayoutName = &HyprlandAPI::getConfigValue(PHANDLE, "general:layout")->strValue;
-	g_default_layout_name = *configLayoutName;
+	g_hyev_default_layout_name = *configLayoutName;
 
 	static const auto* pOpen_window_config =
 	    &HyprlandAPI::getConfigValue(PHANDLE, "plugin:hyev:open_window")->strValue;
@@ -35,12 +35,12 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 	//     &HyprlandAPI::getConfigValue(PHANDLE, "plugin:hyev:focus_window")->strValue;
 
 
-	g_open_window = *pOpen_window_config;
-	g_close_window = *pClose_window_config;
-	g_change_workspace = *pChange_workspace_config;
-	g_fullscreen_on = *pFullscreen_on_config;
-	g_fullscreen_off = *pFullscreen_off_config;
-	// g_focus_window = *pFocus_window_config;
+	g_hyev_open_window = *pOpen_window_config;
+	g_hyev_close_window = *pClose_window_config;
+	g_hyev_change_workspace = *pChange_workspace_config;
+	g_hyev_fullscreen_on = *pFullscreen_on_config;
+	g_hyev_fullscreen_off = *pFullscreen_off_config;
+	// g_hyev_focus_window = *pFocus_window_config;
 
 
 	registerGlobalEventHook();
