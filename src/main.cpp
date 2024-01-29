@@ -10,12 +10,12 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 
 #define CONF(NAME, TYPE, VALUE) \
 	HyprlandAPI::addConfigValue(PHANDLE, "plugin:hyev:" NAME, SConfigValue{.TYPE##Value = VALUE})
-	CONF("open_window", str, "echo hych > /dev/null");
-	CONF("close_window", str, "echo hych > /dev/null");
-	CONF("change_workspace", str, "echo hych > /dev/null");
-	// CONF("focus_window", str, "echo hych > /dev/null");
-	CONF("fullscreen_on", str, "echo hych > /dev/null");
-	CONF("fullscreen_off", str, "echo hych > /dev/null");
+	CONF("open_window", str, "echo hyev > /dev/null");
+	CONF("close_window", str, "echo hyev > /dev/null");
+	CONF("change_workspace", str, "echo hyev > /dev/null");
+	// CONF("focus_window", str, "echo hyev > /dev/null");
+	CONF("fullscreen_on", str, "echo hyev > /dev/null");
+	CONF("fullscreen_off", str, "echo hyev > /dev/null");
 #undef CONF
 
 	std::string *configLayoutName = &HyprlandAPI::getConfigValue(PHANDLE, "general:layout")->strValue;
