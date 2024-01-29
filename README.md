@@ -16,7 +16,7 @@ bash install.sh
 # depend
 ```
 sudo pacman -S sox
-
+sudo pacman -S boost boost-libs
 ```
 
 # animation sounds example(animation sounds)
