@@ -1,0 +1,15 @@
+[repository]
+name = "hyev"
+authors = ["DreamMaoMao"]
+commit_pins = [
+	["03ebbe18ed8517ee22591eac82cd54322f42cb7d", "afa48bcfab05b70b3439916ae4f4c9013530f2b1"]
+]
+
+[hych]
+description = "a hyprland plugin for Animation sound"
+authors = ["DreamMaoMao"]
+output = "build/libhyev.so"
+build = [
+	"cmake -DCMAKE_BUILD_TYPE=Release -B build",
+	"cmake --build build"
+]
