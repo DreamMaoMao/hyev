@@ -5,30 +5,30 @@ a hyprland plugin for Animation sound
 https://github.com/DreamMaoMao/hyev/assets/30348075/f84ae9a1-7378-44ec-be10-5cbb6556d438
 
 
-
-# install
+# Installation (Recommended)
 ```
+sudo pacman -S sox boost boost-libs
+hyprpm add https://github.com/DreamMaoMao/hyev
+hyprpm enable hyev
+```
+# Installation (Old)
+```
+sudo pacman -S sox boost boost-libs
 git clone https://github.com/DreamMaoMao/hyev.git
 cd hyev
 bash install.sh
 ```
 
-# depend
-```
-sudo pacman -S sox
-sudo pacman -S boost boost-libs
-```
-
-# animation sounds example(animation sounds)
-## copy sound file
+# Example sounds
+## Copy sound files
 ```
 cd hyev
 cp ./sound -r /home/wrq/.config/hypr/
 ```
 
-## edit hyprland.conf
+## Edit hyprland.conf
 ```
-plugin = /usr/lib/libhyev.so
+#plugin = /usr/lib/libhyev.so #Uncomment if installed with old method
 
 plugin {
     hyev {
