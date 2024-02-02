@@ -2,11 +2,11 @@
 name = "hyev"
 authors = ["DreamMaoMao"]
 commit_pins = [
-	["03ebbe18ed8517ee22591eac82cd54322f42cb7d", "afa48bcfab05b70b3439916ae4f4c9013530f2b1"]
+	["03ebbe18ed8517ee22591eac82cd54322f42cb7d", "9f1caf4fbbe503359622d3b7f820ebbc06c3d8fa"]
 ]
 
 [hyev]
-description = "a hyprland plugin for Animation sound"
+description = "hyprland animation sound plugin"
 authors = ["DreamMaoMao"]
 output = "build/libhyev.so"
 build = [
