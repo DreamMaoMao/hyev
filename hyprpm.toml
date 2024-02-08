@@ -11,5 +11,5 @@ authors = ["DreamMaoMao"]
 output = "build/libhyev.so"
 build = [
 	"cmake -DCMAKE_BUILD_TYPE=Release -B build",
-	"cmake --build build"
+	"cmake --build build -j $(nproc)"
 ]
